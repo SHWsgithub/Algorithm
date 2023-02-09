@@ -11,21 +11,7 @@
  * @return {number}
  */
 var sumOfLeftLeaves = function(root) {
-    if(!root) {
-        return 0;
-    }
-    
-    let result = 0;
-    
-    const recursion = (node) => {
-        if (!node) return;
-        if (node.left && !node.left.left && !node.left.right) {
-            result += node.left.val;
-        }
-        recursion(node.left);
-        recursion(node.right);
-    }
-    
-    recursion(root);
-    return result;
+    if(!root) return 0;
+    if(root.left && !root?.left?.left&& !root?.left?.right) return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right) + root?.left.val;
+    return sumOfLeftLeaves(root?.left) + sumOfLeftLeaves(root?.right);
 };
