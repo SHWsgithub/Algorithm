@@ -4,21 +4,12 @@
  * @return {number}
  */
 var pickGifts = function(gifts, k) {
-    const q = new MaxPriorityQueue();
-    for (const i of gifts) {
-        q.enqueue(i);
+    while(k > 0) {
+        let maxNum = Math.max(...gifts);
+        const maxIndex = gifts.findIndex(gift => gift === maxNum);
+        gifts[maxIndex] = Math.floor(Math.sqrt(maxNum));
+        k--;
     }
     
-    while (k--) {
-        const val = q.dequeue().element;
-        const fsqrt = Math.floor(Math.sqrt(val));
-        q.enqueue(fsqrt);
-    }
-    
-    let sum = 0;
-   while (!q.isEmpty()) {
-       sum += q.dequeue().element;
-   }
-    
-    return sum;
+    return gifts.reduce((acc, cur) => acc + cur, 0);
 };
