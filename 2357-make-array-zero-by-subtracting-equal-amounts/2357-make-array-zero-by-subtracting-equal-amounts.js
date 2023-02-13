@@ -10,7 +10,8 @@ var minimumOperations = function(nums) {
       acc++;
       for (let i = 0; i < nums.length; i++) {
         if (nums[i] === 0) continue;
-        nums[i] = Math.max(nums[i] - curr, 0);
+        nums[i] -= curr;
+        if (nums[i] < 0) nums[i] = 0;
       }
       return acc;
     }, 0);
