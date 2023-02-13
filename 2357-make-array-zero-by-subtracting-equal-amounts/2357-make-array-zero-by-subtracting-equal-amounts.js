@@ -8,7 +8,7 @@ var minimumOperations = function(nums) {
     .reduce((acc, curr) => {
       if (curr === 0) return acc;
       acc++;
-      for (let i = acc; i < nums.length; i++) {
+      for (let i = 0; i < nums.length; i++) {
         if (nums[i] === 0) continue;
         nums[i] -= curr;
         if (nums[i] < 0) nums[i] = 0;
