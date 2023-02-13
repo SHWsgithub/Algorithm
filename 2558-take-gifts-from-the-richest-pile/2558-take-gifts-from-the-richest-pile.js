@@ -3,13 +3,12 @@
  * @param {number} k
  * @return {number}
  */
-var pickGifts = function(gifts, k) {
-    while(k > 0) {
-        let maxNum = Math.max(...gifts);
-        const maxIndex = gifts.findIndex(gift => gift === maxNum);
-        gifts[maxIndex] = Math.floor(Math.sqrt(maxNum));
-        k--;
-    }
-    
-    return gifts.reduce((acc, cur) => acc + cur, 0);
+var pickGifts = function (gifts, k) {
+  for (let i = 0; i < k; i++) {
+    gifts.sort((a, b) => b - a);
+    gifts.push(Math.floor(Math.sqrt(gifts[0])));
+    gifts = gifts.slice(1);
+  }
+
+  return gifts.reduce((a, b) => a + b);
 };
