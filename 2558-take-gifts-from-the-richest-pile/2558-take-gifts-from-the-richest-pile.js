@@ -4,9 +4,8 @@
  * @return {number}
  */
 var pickGifts = function(gifts, k) {
-    for(let i = 0; i < k; i++) {
-        const maxNum = Math.max(...gifts);
-        
+    while(k--) {
+        let maxNum = Math.max(...gifts);
         const maxIndex = gifts.findIndex(gift => gift === maxNum);
         gifts[maxIndex] = Math.floor(Math.sqrt(maxNum));
     }
