@@ -4,13 +4,13 @@
  * @return {boolean}
  */
 var canReach = function(arr, start) {
-    const visited = new Set();
+    const set = new Set();
     
     const recursion = (curIndex) => {
-        if (visited.has(curIndex) || curIndex < 0 || curIndex >= arr.length) {
+        if (set.has(curIndex) || curIndex < 0 || curIndex >= arr.length) {
           return false;
         }
-        visited.add(curIndex);
+        set.add(curIndex);
         if (arr[curIndex] === 0) {
           return true;
         }
