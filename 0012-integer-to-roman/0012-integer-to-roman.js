@@ -2,31 +2,30 @@
  * @param {number} num
  * @return {string}
  */
-var intToRoman = function(num) {
-  const romanMap = new Map([    
-    [1000, 'M'],
-    [900, 'CM'],
-    [500, 'D'],
-    [400, 'CD'],
-    [100, 'C'],
-    [90, 'XC'],
-    [50, 'L'],
-    [40, 'XL'],
-    [10, 'X'],
-    [9, 'IX'],
-    [5, 'V'],
-    [4, 'IV'],
-    [1, 'I'],
-  ]);
-  
-  let roman = '';
-  
-  for (const [value, symbol] of romanMap) {
-    while (num >= value) {
-      roman += symbol;
-      num -= value;
-    }
-  }
-  
-  return roman;
+var intToRoman = function(num) { 
+    let intAndRoman = {
+         1000: 'M',
+           500: 'D',
+           100: 'C',           
+         50: 'L',    
+           10: 'X',
+           5: 'V',      
+        1:  'I',
+    };
+    let romanString = '';
+    const keys = [1000, 500, 100, 50, 10, 5, 1];
+
+    for(let key of keys){
+        while(num >= key){
+            num -= key;
+            romanString += intAndRoman[key];
+        }
+    }    
+    romanString = romanString.replace('DCCCC','CM')
+    .replace('CCCC', 'CD')
+    .replace('LXXXX', 'XC')
+    .replace('XXXX', 'XL')
+    .replace('VIIII', 'IX')
+    .replace('IIII', 'IV');
+    return romanString;
 };
