@@ -21,11 +21,10 @@ var intToRoman = function(num) {
             romanString += intAndRoman[key];
         }
     }    
-    romanString = romanString.replace('DCCCC','CM')
+    return romanString.replace('DCCCC','CM')
     .replace('CCCC', 'CD')
     .replace('LXXXX', 'XC')
     .replace('XXXX', 'XL')
     .replace('VIIII', 'IX')
     .replace('IIII', 'IV');
-    return romanString;
 };
