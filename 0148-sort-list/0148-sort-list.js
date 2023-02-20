@@ -16,6 +16,7 @@ var sortList = function(head) {
     
     let sortList = [];
     let cur = head;
+    
     while (cur) {
         sortList.push(cur.val);
         cur = cur.next;
