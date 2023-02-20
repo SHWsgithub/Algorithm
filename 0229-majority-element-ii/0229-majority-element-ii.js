@@ -9,7 +9,9 @@ var majorityElement = function(nums) {
         
     for (let num of nums) {
         map.set(num, (map.get(num) || 0) + 1);
-        if (map.get(num) > Math.floor(nums.length / 3)) result.add(num);
+        if (map.get(num) > Math.floor(nums.length / 3)) {
+            result.add(num);
+        }
     }
     
     
