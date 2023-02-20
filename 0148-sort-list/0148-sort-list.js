@@ -25,6 +25,7 @@ var sortList = function(head) {
     sortList.sort((a, b) => a - b);
     
     cur = head;
+    
     for (let i = 0; i < sortList.length; i++) {
         cur.val = sortList[i];
         cur = cur.next;
