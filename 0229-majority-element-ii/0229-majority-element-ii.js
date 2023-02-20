@@ -3,14 +3,20 @@
  * @return {number[]}
  */
 var majorityElement = function(nums) {
-    const memo = {}
-    for (let i = 0; i < nums.length; i++) {
-      if (!memo[nums[i]]) memo[nums[i]] = 0
-      memo[nums[i]]++
+    let map = new Map();
+    const result = [];
+    
+    for (let num of nums) {
+        map.set(num, (map.get(num) || 0) + 1);
     }
-    const ret = []
-    for (const m in memo) {
-      if (memo[m] > nums.length / 3) ret.push(parseInt(m))
-    }
-    return ret
+    
+    map.forEach((val, key) => {
+        if(val > Math.floor(nums.length / 3)) {
+            result.push(key);
+        }
+    })
+    
+    
+    
+    return result;
 };
