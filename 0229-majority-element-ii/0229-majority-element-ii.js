@@ -10,13 +10,7 @@ var majorityElement = function(nums) {
         map.set(num, (map.get(num) || 0) + 1);
     }
     
-    map.forEach((val, key) => {
-        if(val > Math.floor(nums.length / 3)) {
-            result.push(key);
-        }
-    })
-    
-    
-    
-    return result;
+    return Array.from(map.entries())
+        .filter(([num, count]) => count > Math.floor(nums.length / 3))
+        .map(([num]) => num);
 };
