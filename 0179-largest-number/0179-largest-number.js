@@ -6,12 +6,12 @@ var largestNumber = function(nums) {
     nums = nums.map(num => num.toString());
     
     nums.sort((a, b) => {
-        let order1 = a + b;
-        let order2 = b + a;
-        for(let i = 0; i < order1.length; i++) {
-            if(order1[i] > order2[i]) {
+        let exam1 = a + b;
+        let exam2 = b + a;
+        for(let i = 0; i < exam1.length; i++) {
+            if(exam1[i] > exam2[i]) {
                 return -1;
-            } else if (order1[i] < order2[i]) {
+            } else if (exam1[i] < exam2[i]) {
                 return 1;
             }
         }
